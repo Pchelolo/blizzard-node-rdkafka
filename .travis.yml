@@ -13,9 +13,9 @@ cache:
 services:
 - docker
 before_install:
-- sudo add-apt-repository universe
+- echo "deb http://archive.ubuntu.com/ubuntu trusty universe" | sudo tee /etc/apt/sources.list
 - sudo apt-get -qq update
-- sudo apt-get install -y librdkafka-dev
+- sudo apt-get install -y librdkafka-dev=0.9.1-1
 - docker-compose up -d
 script:
 - make lint
